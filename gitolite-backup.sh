@@ -27,7 +27,7 @@ then
 fi
 
 list_repos() {
-	ssh "$1" info 2>/dev/null | grep -P '\t' | cut -f2
+	ssh "$1" info 2>/dev/null | grep -P '\t' | cut -f2 | sed -e 's/\r//g'
 }
 
 create_repo() {
